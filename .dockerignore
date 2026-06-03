@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.git/
+frontend/
+tests/
+conductor/
+docs/
+scripts/
+*.md
+.ruff_cache/

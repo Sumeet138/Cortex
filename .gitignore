@@ -31,8 +31,8 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Local test data (real exports — never commit)
-testing_data/
+# Local test data (uncomment if using real personal exports)
+# testing_data/
 
 # Conductor (internal planning docs)
 conductor/
@@ -43,3 +43,5 @@ conductor/
 
 # AI assistant config
 .claude/
+
+env-prod.yaml

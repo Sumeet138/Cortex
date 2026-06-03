@@ -1,0 +1,24 @@
+{
+  "profile_user": [
+    {
+      "string_map_data": {
+        "Bio": {
+          "href": "",
+          "value": "Senior software engineer | AI infrastructure + distributed systems | Building in Bangalore \ud83c\uddee\ud83c\uddf3 | Prev @razorpay @thoughtworks | Rust learner | Writes about async teams, RAG, and boring technology"
+        },
+        "Username": {
+          "href": "",
+          "value": "arjun.builds"
+        },
+        "Name": {
+          "href": "",
+          "value": "Arjun Sharma"
+        },
+        "Profile Picture": {
+          "href": "https://www.instagram.com/arjun.builds/",
+          "value": ""
+        }
+      }
+    }
+  ]
+}

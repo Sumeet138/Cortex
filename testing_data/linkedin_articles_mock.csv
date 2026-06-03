@@ -1,0 +1,1151 @@
+Title,Content,PublishedAt,Url
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2022-06-02 18:54:53 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2022-06-04 23:38:23 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2022-06-22 05:49:15 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2022-06-24 20:11:59 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2022-07-15 20:19:50 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2022-07-28 12:11:28 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2022-08-07 19:17:21 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2022-08-20 04:13:35 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2022-08-24 04:52:29 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2022-09-17 10:42:30 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2022-09-25 05:47:57 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2022-10-03 18:22:19 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2022-10-23 19:05:27 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2022-11-02 21:31:17 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2022-11-03 21:51:48 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2022-11-24 06:08:13 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2022-11-28 01:52:13 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2022-11-30 11:27:19 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2022-12-06 15:05:33 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2022-12-14 02:48:07 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2022-12-21 12:31:37 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2022-12-30 01:23:59 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2023-01-10 22:30:12 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2023-01-11 16:38:36 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2023-01-17 20:02:19 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2023-01-23 06:53:50 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2023-01-26 04:27:34 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2023-01-26 19:00:12 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2023-02-02 00:45:57 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2023-03-19 09:35:02 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2023-03-21 01:28:12 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2023-03-24 02:28:10 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-04-13 05:12:04 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2023-05-16 01:26:51 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-05-29 19:50:20 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2023-06-06 23:18:57 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-06-07 17:39:21 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2023-06-14 14:56:48 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-06-28 02:06:40 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-07-17 16:45:55 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2023-07-20 20:34:41 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2023-07-21 00:55:07 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2023-07-30 18:01:08 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2023-08-04 03:14:58 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-08-14 09:00:05 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2023-08-22 10:30:17 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2023-08-28 09:23:15 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2023-09-07 18:58:07 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2023-09-26 17:36:17 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2023-10-08 06:28:23 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2023-10-13 20:43:44 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2023-10-16 04:31:13 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2023-10-29 17:39:34 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2023-10-30 10:15:35 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2023-11-08 22:28:39 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2023-11-10 23:28:02 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2023-11-19 03:09:11 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2023-12-15 00:06:43 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2024-01-07 23:24:36 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-01-14 05:19:38 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2024-01-16 22:11:17 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-01-17 21:07:23 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2024-01-21 18:03:32 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2024-02-08 11:15:08 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-02-18 20:44:17 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2024-02-24 18:59:43 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2024-02-27 21:06:38 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2024-02-29 02:48:20 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2024-03-03 22:59:10 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-03-06 14:10:29 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2024-03-07 10:36:09 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2024-04-11 14:09:06 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2024-04-14 23:48:19 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2024-04-17 16:28:52 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2024-04-24 16:29:36 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-05-08 08:28:39 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-05-10 14:14:02 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2024-05-10 19:30:48 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2024-05-17 20:01:27 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2024-05-18 15:43:35 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2024-05-30 07:52:41 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2024-06-03 13:37:46 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2024-06-04 17:49:57 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2024-06-19 12:53:16 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2024-06-22 09:33:20 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-06-22 23:21:56 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+The Async Communication Experiment: Six Months Later,"In January we removed all standing meetings except one weekly sync. Replaced them with structured async updates in Notion, recorded walkthroughs in Loom, and written decision documents for anything with real tradeoffs.
+
+Six months later: meeting hours dropped 65%. Written communication quality improved substantially—people think more carefully when they cannot rely on real-time clarification. Onboarding new engineers became easier because everything was documented. Two engineers in different timezones who never overlap now collaborate effectively.
+
+The tradeoff: it requires more upfront work. A five-minute meeting becomes a ten-minute written brief. A quick question becomes a structured message with enough context that the recipient does not need to ask three follow-up questions. This friction is real. It is also, we discovered, healthy friction—it surfaces assumptions and forces clearer thinking.
+
+What did not survive the experiment: incidents and urgent decisions. We kept a dedicated channel for production issues. We kept the ability to jump on a call when genuine ambiguity required real-time resolution. The key insight: synchronous communication is a finite resource. The teams that spend it wisely outperform the teams that spend it by default.
+
+The weekly sync we kept is one hour. It covers decisions made, not updates. Anyone who needs to give an update does so asynchronously. The sync is for alignment, questions, and human connection. In one hour we accomplish what used to take four hours spread across six meetings.",2024-06-30 15:06:54 UTC,https://www.linkedin.com/pulse/the-async-communication-experiment:-six--arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2024-07-09 11:11:25 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-07-14 04:47:07 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-07-14 09:10:11 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-07-20 06:46:16 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-07-28 17:49:57 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+What Shipping Fast Actually Means,"Every engineering team says they want to ship fast. Most of them mean they want to ship more with the same resources. That is not shipping fast. That is overloading the system.
+
+Shipping fast means a smaller scope, not more heroic effort. The fastest path to done is always a smaller done. The feature you cut is the bug you do not fix, the test you do not write, the documentation you do not maintain. Cutting scope is not giving up. It is accurate resource allocation.
+
+The practices that actually make teams ship faster, in rough order of impact: one, clear acceptance criteria before a line of code is written. Two, feature flags that let you deploy without releasing. Three, a deployment pipeline that runs in under ten minutes. Four, trunk-based development over long-lived branches. Five, async code review so reviewers are not a bottleneck.
+
+The practices that feel like they make teams faster but don't: more engineers on a stuck project. More process to prevent problems. Longer sprints to fit more in. These interventions add coordination cost without adding velocity.
+
+The metric that matters: how long from 'we have an idea' to 'this is in front of users getting real feedback?' Everything else is a proxy. Optimize for that number. Cut whatever increases it.
+
+The engineers who ship fastest are not the ones who code the fastest. They are the ones who ask 'do we need this?' most often and are willing to hear the answer.",2024-07-29 12:35:37 UTC,https://www.linkedin.com/pulse/what-shipping-fast-actually-means-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-07-30 12:07:25 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+Vector Databases: What I Actually Learned in Production,"I have run vector search in production for fourteen months across two products. Here is the real story.
+
+pgvector handles our scale comfortably. We store 2.5 million vectors, run semantic queries in under 50 milliseconds, and operate zero additional infrastructure. The HNSW index with m=16 and ef_construction=64 gave us better recall than the default IVFFLAT with less configuration effort. For any team already running PostgreSQL, this is the obvious starting point.
+
+Chunking strategy matters more than embedding model. We tested three embedding models. The recall difference between the best and worst was around 8%. We changed our chunking strategy from fixed 512 tokens to content-aware splitting—atomic for short posts, recursive paragraph-then-sentence for articles—and recall improved 23%. Invest in chunking first.
+
+Metadata filtering at query time is non-negotiable. We filter by source platform, date range, and content type on every production query. Storing this metadata in the same PostgreSQL table as the vectors means we do this with a WHERE clause on an indexed column. No separate metadata store. No join across systems. This architectural simplicity paid back immediately.
+
+Deduplication before embedding saved us 28% of our embedding costs. SHA-256 the normalized text. Skip anything you have seen. In a social data context, reshared content appears multiple times across exports. Embedding the same text twice serves nobody.
+
+The vector DB market will consolidate toward simplicity. The winner will be the tool that the oncall engineer can debug without reading a 200-page manual. That is currently Postgres for most teams. The specialized vendors are solving for scale that most teams will never reach.",2024-08-08 09:32:19 UTC,https://www.linkedin.com/pulse/vector-databases:-what-i-actually-learne-arjunsharma
+"Eight Years, Eight Architecture Regrets","I have been building production systems since 2016. Here are the architecture decisions I regret most, in order of how much they cost.
+
+One: Introducing Kafka before we needed it. We added event streaming to a system processing 1,000 events per day because we anticipated 1,000,000. We spent three engineers for six months on infrastructure that served hypothetical load. The load never came. The complexity stayed.
+
+Two: Microservices for a team of four. Service decomposition is a solution to a team coordination problem. When you have four engineers, you do not have a coordination problem. You have four engineers who now own four services, four deployment pipelines, and four sets of operational concerns.
+
+Three: Custom authentication instead of a managed service. We spent two sprints building auth. We spent the next year finding the edge cases we missed. Auth is a solved problem. Treat it as one.
+
+Four: NoSQL because NoSQL is 'faster.' Faster at what? For our actual query patterns—filtering by date, joining user and content data, aggregating by source—Postgres would have been faster. We migrated back after two years. Two years.
+
+Five: Skipping observability in the early days. 'We will add tracing when we need it.' We needed it on day thirty. We added it on day two hundred and forty.
+
+Six: Optimizing before profiling. Three weeks of premature optimization. The bottleneck was network latency to an external API. The code was fine.
+
+Seven: Not writing the architecture decision record. We rebuilt the same debate three times in two years because nobody documented why we made the original choice.
+
+Eight: All of the above would have been avoided if I had asked one question first: 'what happens when this breaks at 3am, and who has to fix it?'",2024-08-14 08:49:17 UTC,https://www.linkedin.com/pulse/eight-years-eight-architecture-regrets-arjunsharma
+Why I Stopped Chasing the Newest Framework,"Eight years of building software taught me one thing about technology choices: the exciting decision is usually the wrong one. Every eighteen months there is a new framework that promises to solve everything. The teams that chase it spend six months migrating, six months stabilizing, and end up where they started—except with a harder hiring problem.
+
+My current stack: FastAPI, PostgreSQL, React, deployed on Google Cloud Run. It is boring by design. I can hire for it. I can debug it at 2am. I can explain every tradeoff to a new engineer in thirty minutes. That is the actual evaluation criteria.
+
+The engineers I respect most are the ones who can articulate what they gave up, not just what they gained. React over Vue? Fine. Tell me what you cannot do. Postgres over MongoDB? Fine. Tell me where the joins hurt. The tradeoff is the skill. The framework is just the context.
+
+There is a version of this that becomes conservatism—refusing new tools out of comfort. That is not what I am describing. When pgvector shipped, I adopted it immediately because it eliminated an entire infrastructure component. When asyncio became production-ready in Python, I rewrote our IO-heavy services. The bar is: does this solve a problem I actually have, or does it create a problem I now have to manage?
+
+The most dangerous phrase in engineering: 'we should be using X.' The most useful phrase: 'X solves Y which costs us Z per month.' Make the case or make peace with the boring stack.",2024-08-26 00:52:39 UTC,https://www.linkedin.com/pulse/why-i-stopped-chasing-the-newest-framewo-arjunsharma
+The IC vs Manager Decision Nobody Prepared Me For,"I became an engineering manager fourteen months ago. I went back to individual contributor work eight months ago. Here is what I learned in between.
+
+Management is a different job, not a promotion. The skills that make a great IC—deep technical focus, autonomous problem solving, individual craft—are largely orthogonal to the skills that make a great manager: context switching between seven conversations, making decisions under uncertainty, developing other people's capabilities, organizational navigation. Both are hard. They are not the same hard.
+
+The thing nobody told me: you do not get to choose which problems you work on as a manager. The organization chooses them for you. Your job is to clear obstacles for your team, which means your agenda is always someone else's agenda. For some people, this is energizing. For me, it was a slow drain.
+
+What I gained: a systems view of how engineering organizations work that I could not have gotten any other way. I understand why the processes exist, which ones are worth fighting and which ones to route around. I became a dramatically better writer because managers communicate in writing constantly. I understand what 'impact' means at the organizational level in a way that I did not as an IC.
+
+The decision to go back was not about failure. My team shipped, we had no attrition, the work got done. The decision was about fit. I am better when I have a hard technical problem to solve. I am less good when the hard problem is purely organizational.
+
+The right advice: try management before you decide. The wrong advice: manage for the title.",2024-09-14 15:44:21 UTC,https://www.linkedin.com/pulse/the-ic-vs-manager-decision-nobody-prepar-arjunsharma
+How I Think About Hiring Engineers,"I have hired thirty engineers over the past four years. Here is how my thinking has changed.
+
+Early on I hired for pedigree. IIT, IISc, FAANG experience. The interview was LeetCode medium and a system design question. The results were inconsistent. Some of the best engineers I hired came from this filter. So did some of the worst.
+
+What I hire for now: how someone thinks through a problem they have not seen before. I give candidates a system design problem with intentional ambiguity and watch how they handle it. Do they ask clarifying questions? Do they acknowledge tradeoffs? Do they say 'I don't know' when they don't know? The engineers who pretend to know everything are the ones who hide problems in production.
+
+The question I ask every candidate: 'Tell me about a technical decision you made that turned out to be wrong. What did you learn?' The engineers who cannot answer this question have either not made enough decisions or are not honest about the ones they made. Both are disqualifying.
+
+I care about written communication more than most interviewers. I ask candidates to walk me through a technical decision in writing, asynchronously, before the interview. The quality of the thinking correlates with the quality of the writing. This filters well.
+
+The thing I got wrong for years: filtering for speed. Fast leetcode performance does not predict good systems design. Good systems design does not predict good team collaboration. These are different skills. The interview should test the skills the job requires.
+
+Tier-2 college, years of experience in a specific technology, FAANG background: none of these are strong predictors in my data. Curiosity, intellectual honesty, and clear communication are.",2024-09-20 21:21:19 UTC,https://www.linkedin.com/pulse/how-i-think-about-hiring-engineers-arjunsharma
+RAG in Production: What Nobody Tells You,"We shipped retrieval-augmented generation to production eight months ago. Here is what the tutorials do not cover.
+
+First: retrieval quality matters ten times more than model choice. We spent three weeks optimizing prompts and got marginal improvement. We spent one week fixing our chunking strategy and got dramatic improvement. The order of operations matters. Fix retrieval first, then retrieval quality, then prompts, then model selection. Most teams do it backwards.
+
+Second: you need an eval harness before you ship anything. Not after. Before. Without it, you are flying blind. Every prompt change, every chunking change, every model update—you need to know if things got better or worse. We built a golden dataset of 50 question-answer pairs with human-verified answers. We score against it after every change. Imperfect but essential.
+
+Third: the grounding guardrail is not optional. If your system can answer questions outside the provided context, it will hallucinate. Constrain the model explicitly. 'Answer only based on the provided context. If the context does not contain the answer, say so.' This feels aggressive. It is correct.
+
+Fourth: streaming matters for more than UX. When you stream the response, you can watch the first twenty tokens in real time. If the model starts with 'Based on my training data...' you know the grounding failed before the user sees a complete sentence. Early detection is a debugging tool.
+
+Fifth: citations are not optional for user trust. Every claim the model makes should be traceable to a source. Users who cannot verify claims will not trust the system. Users who can verify claims will use it more. Build citation display into the architecture from day one.",2024-09-22 04:32:28 UTC,https://www.linkedin.com/pulse/rag-in-production:-what-nobody-tells-you-arjunsharma

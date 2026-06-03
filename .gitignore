@@ -39,7 +39,6 @@ conductor/
 
 # Misc
 *.log
-uv.lock
 
 
 # AI assistant config

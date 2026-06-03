@@ -15,7 +15,6 @@ COPY ingestion/ ./ingestion/
 COPY kb/ ./kb/
 COPY rag/ ./rag/
 COPY migrations/ ./migrations/
-COPY testing_data/ ./testing_data/
 
 ENV PATH="/app/.venv/bin:$PATH"
 

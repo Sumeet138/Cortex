@@ -233,6 +233,9 @@ export function UploadPanel() {
       )}
 
       <div style={{ marginTop: 'auto', paddingTop: '0.5rem' }}>
+        <p className="seed-hint" style={{ marginBottom: '0.5rem' }}>
+          This is a shared demo — all users share one database. Clear before uploading your own data.
+        </p>
         <button
           className="btn-clear"
           onClick={clearData}

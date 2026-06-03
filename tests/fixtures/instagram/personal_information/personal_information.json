@@ -1,0 +1,11 @@
+{
+  "profile_user": [
+    {
+      "string_map_data": {
+        "Username": {"href": "", "value": "testuser"},
+        "Name": {"href": "", "value": "Test User"},
+        "Bio": {"href": "", "value": "Builder. AI enthusiast. Working on the future of async work."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "profile_user": [
+    {
+      "string_map_data": {
+        "Bio": {
+          "href": "",
+          "value": "Software engineer building AI-powered products. Thinking about distributed systems, vector search, and async teams. Based in Bangalore 🇮🇳. Previously @stripe @thoughtworks."
+        },
+        "Gender": {
+          "href": "",
+          "value": ""
+        },
+        "Username": {
+          "href": "",
+          "value": "alex.codes"
+        },
+        "Name": {
+          "href": "",
+          "value": "Alex Chen"
+        },
+        "Profile Picture": {
+          "href": "https://www.instagram.com/alex.codes/",
+          "value": ""
+        }
+      }
+    }
+  ]
+}

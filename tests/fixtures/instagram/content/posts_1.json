@@ -1,0 +1,29 @@
+[
+  {
+    "media": [
+      {
+        "uri": "media/posts/202401/photo1.jpg",
+        "creation_timestamp": 1705312200,
+        "title": "Beautiful sunset from my home office. Remote work has its perks!"
+      }
+    ]
+  },
+  {
+    "media": [
+      {
+        "uri": "media/posts/202401/photo2.jpg",
+        "creation_timestamp": 1705225800,
+        "title": ""
+      }
+    ]
+  },
+  {
+    "media": [
+      {
+        "uri": "media/posts/202401/photo3.jpg",
+        "creation_timestamp": 1705139400,
+        "title": "Team meetup! Nothing beats in-person collaboration once in a while."
+      }
+    ]
+  }
+]
